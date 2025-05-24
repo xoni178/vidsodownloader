@@ -38,9 +38,6 @@
 
 <div>
     <?php
-    if (!empty($values["query"])) {
-        echo "<h1 class=\"text-white\">" . $values["query"] . "</h1>";
-    }
-
+    echo $GLOBALS['data'];
     ?>
 </div>

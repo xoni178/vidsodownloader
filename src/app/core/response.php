@@ -11,6 +11,7 @@ class Response
      */
     public static function view(string $fileName, array $values = []): void
     {
+
         $view =  VIEW_FILES_DIR . "/" . $fileName . ".php";
         require  VIEW_FILES_DIR . "/" . "layout.php";
     }
