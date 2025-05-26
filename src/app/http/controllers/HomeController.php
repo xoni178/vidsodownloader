@@ -3,6 +3,7 @@
 namespace App\HTTP\Controllers;
 
 use App\Core\Response;
+use App\Core\Http;
 
 class HomeController
 {
@@ -15,20 +16,19 @@ class HomeController
 
     public function search()
     {
-        $query = $_GET["q"];
-        $regex = '/^(https?:\/\/)?(www\.)?(youtube\.com)(\/[\w\-?=&%#.]*)?$/i';
-        if (preg_match($regex, $query)) {
-            $url = $query;
-            $session = curl_init($url);
+        $url = null;
 
-            if (curl_errno($session)) {
-                print_r(curl_error($session));
-            }
-            global $data;
+        if (isset($_SESSION['q'])) $url = $_SESSION['q'];
 
-            $data = curl_exec($session);
-            curl_close($session);
-            Response::view("index", ["data" => "hiiiii"]);
+        unset($_SESSION['q']);
+
+        if (isset($url)) {
+            $data = null;
+
+            Http::fetchBasicInfo($url);
+
+
+            Response::view("videos-displayer", ["data" => ""]);
         }
     }
 }

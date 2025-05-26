@@ -27,17 +27,3 @@
         </div>
     </form>
 </div>
-
-<script>
-    const form = document.getElementsByTagName("form")[0];
-
-    form.addEventListener("submit", () => {
-
-    })
-</script>
-
-<div>
-    <?php
-    echo $GLOBALS['data'];
-    ?>
-</div>
