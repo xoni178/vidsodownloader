@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-if (isset($_GET['q'])) {
-    header("Location: /");
-
-    $_SESSION['q'] = $_GET['q'];
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 

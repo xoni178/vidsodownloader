@@ -35,7 +35,7 @@ class Http
     public static function fetchData(string $url, array $params = []): string|null
     {
         if (!self::validateUrl($url)) return null;
-        echo "I ran";
+
         $session = curl_init($url);
 
         if (curl_errno($session)) {

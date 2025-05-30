@@ -6,6 +6,6 @@ use App\HTTP\Controllers\HomeController;
 
 Router::get("/", HomeController::class, "index");
 
-Router::get("/", HomeController::class, "search");
+Router::post("/", HomeController::class, "search");
 
 Router::notfound();
