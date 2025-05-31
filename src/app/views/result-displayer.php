@@ -1,3 +1,8 @@
+<div>
+    <form method="POST" action="/reset">
+        <button type="submit" class="text-white text-sm upercase underline">remove saved videos</button>
+    </form>
+</div>
 <div class="flex flex-col gap-4 mt-10">
     <?php foreach ($_SESSION["content"] as $video): ?>
         <div class="w-full h-[150px] flex flex-row bg-gray-700">
@@ -18,7 +23,7 @@
                 </div>
                 <div class="flex">
                     <a class="bg-blue-400 hover:bg-blue-500 text-white font-medium rounded-lg text-sm px-4 py-2"
-                        href=<?= $video["download_url"] ?>>Download</a>
+                        target="_blank" href="/download?url=<?= htmlspecialchars($video['download_url']) ?>&title=<?= $video['title'] ?>" data-type="mp4">Download</a>
                 </div>
             </div>
         </div>
